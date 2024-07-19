@@ -3,29 +3,33 @@ package io.github.AnonimMaster.PvPLadder;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import io.github.AnonimMaster.PvPLadder.settings.DatabaseSettings;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.sql.SQLException;
 
-import static org.bukkit.Bukkit.getLogger;
-
 public class DatabaseManager {
+    private final JavaPlugin plugin;
     private HikariDataSource dataSource = null;
-    
+
+    public DatabaseManager(JavaPlugin plugin) {
+        this.plugin = plugin;
+    }
+
     public void connect(DatabaseSettings settings) throws SQLException {
-        getLogger().info("Connecting to database...");
+        plugin.getLogger().info("Connecting to database...");
         if(settings.Type.equalsIgnoreCase("MySQL")) {
             connectMySQLDatabase(settings);
         } else if(settings.Type.equalsIgnoreCase("sqlite")) {
             connectSQLiteDatabase();
         } else {
-            getLogger().warning("Unknown database type: " + settings.Type);
+            plugin.getLogger().warning("Unknown database type: " + settings.Type);
         }
-        getLogger().info("Connected to database");
+        plugin.getLogger().info("Connected to database");
     }
     
     public void disconnect() {
         if (dataSource != null) {
-            getLogger().info("Disconnecting from database...");
+            plugin.getLogger().info("Disconnecting from database...");
             dataSource.close();
         }
     }

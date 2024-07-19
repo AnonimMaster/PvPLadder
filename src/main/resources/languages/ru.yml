@@ -1,0 +1,7 @@
+﻿Stats:
+  DescriptionCommand: 'Показывает статистику игрока'
+  Kills: 'Убийств'
+  Deaths: 'Смертей'
+  Wins: 'Побед'
+  Losses: 'Поражений'
+  Rating: 'Рейтинг'
