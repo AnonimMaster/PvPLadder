@@ -1,0 +1,27 @@
+name: PvPLadder
+version: '0.1-SNAPSHOT'
+main: io.github.AnonimMaster.PvPLadder.Startup
+api-version: '1.20'
+prefix: PvPLadder
+authors: [ AnonimMaster ]
+description:
+  The plugin implements a system of competitive battles in PVP arenas, taking into account ratings in different formats: 3x3, 2x2, 1x1
+website: https://github.com/AnonimMaster
+load: STARTUP
+libraries:
+  - com.google.guava:guava:30.1.1-jre
+  - com.google.code.gson:gson:2.8.6
+permissions :
+  permission.node:
+    description: "This is a permission node"
+    default: op
+    children:
+      permission.node.child: true
+  another.permission.node:
+    description: "This is another permission node"
+    default: not op
+commands:
+  command:
+    description: "This is a command"
+    usage: "/ladder <arg>"
+    aliases: [ladder, pvpladder]

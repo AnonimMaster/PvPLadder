@@ -1,0 +1,12 @@
+﻿locale: ru
+
+database:
+  # SQLite or MySQL
+  type: SQLite
+  
+  MySQL:
+    host: localhost
+    port: 3306
+    database: test
+    username: user
+    password: secret
