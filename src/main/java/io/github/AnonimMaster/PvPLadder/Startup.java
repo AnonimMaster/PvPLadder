@@ -3,13 +3,10 @@ package io.github.AnonimMaster.PvPLadder;
 import io.github.AnonimMaster.PvPLadder.commands.LanguageCommand;
 import io.github.AnonimMaster.PvPLadder.commands.StatsCommand;
 import io.github.AnonimMaster.PvPLadder.settings.DatabaseSettings;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
 import java.sql.SQLException;
-import java.util.Map;
 
 public final class Startup extends JavaPlugin {
     

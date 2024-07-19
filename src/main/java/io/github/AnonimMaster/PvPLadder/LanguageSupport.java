@@ -25,6 +25,23 @@ public class LanguageSupport {
         new LanguageSwitchEvent().callEvent();
         SetLanguage(language);
     }
+
+    private void saveDefaultConfig() {
+        var languagesFolder = new File(plugin.getDataFolder()+"/languages");
+        if(!languagesFolder.exists()) {
+            languagesFolder.mkdir();
+        }
+        
+        var ru = new File(languagesFolder, "ru.yml");
+        if(!ru.exists()) {
+            plugin.saveResource("languages/ru.yml", false);
+        }
+
+        var en = new File(languagesFolder, "en.yml");
+        if(!en.exists()) {
+            plugin.saveResource("languages/en.yml", false);
+        }
+    }
     
     private void SetLanguage(String language) {
         plugin.getConfig().set("locale",language);
@@ -36,6 +53,7 @@ public class LanguageSupport {
     }
 
     private void InitLanguages(){
+        saveDefaultConfig();
         SetLanguage(plugin.getConfig().getString("locale"));
     }
 }
