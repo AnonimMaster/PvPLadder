@@ -1,4 +1,4 @@
-package io.github.AnonimMaster.PvPLadder;
+package io.github.AnonimMaster.PvPLadder.DAL;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;

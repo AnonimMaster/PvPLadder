@@ -1,4 +1,4 @@
-package io.github.AnonimMaster.PvPLadder;
+package io.github.AnonimMaster.PvPLadder.DAL;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

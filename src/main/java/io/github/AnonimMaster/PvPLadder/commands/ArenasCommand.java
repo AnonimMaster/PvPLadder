@@ -1,38 +1,40 @@
 package io.github.AnonimMaster.PvPLadder.commands;
 
 import io.github.AnonimMaster.PvPLadder.DAL.LanguageSupport;
+import io.github.AnonimMaster.PvPLadder.domain.arenas.Arena;
 import io.github.AnonimMaster.PvPLadder.events.LanguageSwitchEvent;
+import io.github.AnonimMaster.PvPLadder.gui.GuiManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
-public class LanguageCommand implements CommandExecutor, Listener {
+public class ArenasCommand implements CommandExecutor, Listener {
     private final JavaPlugin plugin;
     private final LanguageSupport languageSupport;
-    private String SuccessCommand = "You have set the language";
 
-    public LanguageCommand(JavaPlugin plugin, LanguageSupport languageSupport) {
+    public ArenasCommand(JavaPlugin plugin, LanguageSupport languageSupport) {
         this.plugin = plugin;
         this.languageSupport = languageSupport;
-        var command = plugin.getCommand("language");
+        var command = plugin.getCommand("arenas");
         command.setExecutor(this);
         plugin.getServer().getPluginManager().registerEvents(this,plugin);
     }
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        this.languageSupport.SwitchLanguages(strings[0]);
-        commandSender.sendMessage(SuccessCommand + ": " + strings[0]);
+        if(commandSender instanceof Player) {
+            GuiManager.getArenaEditMenu((Player) commandSender, new Arena());
+        }
         return true;
     }
 
     @EventHandler
     public void switchLanguage(LanguageSwitchEvent event) {
-        plugin.getCommand("language").setDescription(this.languageSupport.getString("Stats.DescriptionCommand"));
-        SuccessCommand = this.languageSupport.getString("");
+        plugin.getCommand("arenas").setDescription(this.languageSupport.getString("Arenas.DescriptionCommand"));
     }
 }

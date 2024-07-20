@@ -1,6 +1,6 @@
 package io.github.AnonimMaster.PvPLadder.commands;
 
-import io.github.AnonimMaster.PvPLadder.LanguageSupport;
+import io.github.AnonimMaster.PvPLadder.DAL.LanguageSupport;
 import io.github.AnonimMaster.PvPLadder.events.LanguageSwitchEvent;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

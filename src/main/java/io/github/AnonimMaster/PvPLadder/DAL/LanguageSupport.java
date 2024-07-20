@@ -1,4 +1,4 @@
-package io.github.AnonimMaster.PvPLadder;
+package io.github.AnonimMaster.PvPLadder.DAL;
 
 import io.github.AnonimMaster.PvPLadder.events.LanguageSwitchEvent;
 import org.bukkit.configuration.file.YamlConfiguration;

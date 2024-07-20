@@ -12,9 +12,13 @@ libraries:
   - com.google.guava:guava:30.1.1-jre
   - com.google.code.gson:gson:2.8.6
 commands:
+  arenas:
+    description: "Edit arenas"
+    usage: "/PvPLadder arenas"
   stats:
     description: "stats"
     usage: "/PvPLadder stats"
   language:
     description: "Test"
     usage: "/PvPLadder language <locale>"
+softdepend: [PlaceholderAPI]
